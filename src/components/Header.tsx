@@ -1,0 +1,28 @@
+function Header() {
+  return (
+    <>
+      <div className="w-full sticky top-0 right-0 left-0 z-40 bg-white ">
+        <div className="container flex items-center justify-between py-3 mx-auto">
+          <img
+            src="/src/assets/images/new-logo.svg"
+            alt="logo"
+            className="w-24 md:w-40"
+            width="164"
+            height="44"
+          />
+          <div className="cursor-pointer inline-block rounded-lg bg-pink-500 px-4 py-2 text-base font-bold text-white disabled:cursor-not-allowed disabled:opacity-80 flex items-center gap-2">
+            <img
+              src="/src/assets/images/house-fill.svg"
+              alt="logo"
+              width="20"
+              height="20"
+            />{" "}
+            <span>მთავარი</span>
+          </div>
+        </div>
+        <div className="bg-blue-700 min-h-12"></div>
+      </div>
+    </>
+  );
+}
+export default Header;
