@@ -1,4 +1,8 @@
-function Header() {
+interface HeaderProps {
+  setIsFormContainerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Header: React.FC<HeaderProps> = ({ setIsFormContainerOpen }) => {
   return (
     <>
       <div className="w-full sticky top-0 right-0 left-0 z-40 bg-white ">
@@ -10,13 +14,16 @@ function Header() {
             width="164"
             height="44"
           />
-          <div className="cursor-pointer inline-block rounded-lg bg-pink-500 px-4 py-2 text-base font-bold text-white disabled:cursor-not-allowed disabled:opacity-80 flex items-center gap-2">
+          <div
+            onClick={() => setIsFormContainerOpen(false)}
+            className="cursor-pointer inline-block rounded-lg bg-pink-500 px-4 py-2 text-base font-bold text-white disabled:cursor-not-allowed disabled:opacity-80 flex items-center gap-2"
+          >
             <img
               src="/src/assets/images/house-fill.svg"
               alt="logo"
               width="20"
               height="20"
-            />{" "}
+            />
             <span>მთავარი</span>
           </div>
         </div>
@@ -24,5 +31,5 @@ function Header() {
       </div>
     </>
   );
-}
+};
 export default Header;

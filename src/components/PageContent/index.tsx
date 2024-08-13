@@ -1,12 +1,22 @@
 import CardContainer from "../CardContainer";
 import FormContainer from "../FormContainer";
 
-function PageContent() {
+interface PageContentProps {
+  isFormContainerOpen: boolean;
+  setIsFormContainerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+const PageContent: React.FC<PageContentProps> = ({
+  isFormContainerOpen,
+  setIsFormContainerOpen,
+}) => {
   return (
     <>
-      <CardContainer />
-      <FormContainer />
+      {isFormContainerOpen ? (
+        <FormContainer {...{ setIsFormContainerOpen }} />
+      ) : (
+        <CardContainer {...{ setIsFormContainerOpen }} />
+      )}
     </>
   );
-}
+};
 export default PageContent;

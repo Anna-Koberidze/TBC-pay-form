@@ -1,53 +1,71 @@
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import UserName from "./UserName";
+import Password from "./Password";
+import Email from "./Email";
+import SuccessMessage from "./successMessage";
+import Buttons from "./Buttons";
+interface FormContainerProps {
+  setIsFormContainerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+export interface FormValues {
+  userNameInput: string;
+  password: string;
+  email: string;
+}
 
-function FormContainer() {
+const FormContainer: React.FC<FormContainerProps> = ({
+  setIsFormContainerOpen,
+}) => {
+  const [step, setStep] = useState(1);
+
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm({
+    trigger,
+  } = useForm<FormValues>({
+    mode: "onChange",
     defaultValues: {
-      example: "",
-      exampleRequired: "",
+      userNameInput: "",
+      password: "",
+      email: "",
     },
   });
 
-  console.log(watch("example")); // you can watch individual input by pass the name of the input
+  const onSubmit = (data: FormValues) => {
+    console.log(data);
+    alert("Form Submitted!");
+    nextStep();
+  };
 
+  const nextStep = async () => {
+    const result = await trigger(); // Validate the current step
+    if (result) {
+      setStep((prev) => prev + 1);
+    }
+  };
+
+  const handleBack = () => {
+    if (step === 1) {
+      setIsFormContainerOpen(false);
+    } else {
+      setStep((prev) => prev - 1);
+    }
+  };
   return (
-    <>
-      <form
-        onSubmit={handleSubmit((data) => {
-          alert(JSON.stringify(data));
-        })}
-        className="max-w-lg mx-auto p-4"
-      >
-        <label className="block text-black text-sm font-light mt-5 mb-3">
-          Example
-        </label>
-        <input
-          {...register("example")}
-          defaultValue="test"
-          className="block w-full border border-black rounded-md p-2.5 mb-3 text-sm"
-        />
-
-        <label className="block text-black text-sm font-light mt-5 mb-3">
-          ExampleRequired
-        </label>
-        <input
-          {...register("exampleRequired", { required: true, maxLength: 10 })}
-          className="block w-full border border-black rounded-md p-2.5 mb-3 text-sm"
-        />
-
-        {errors.exampleRequired && <p>This field is required</p>}
-
-        <input
-          type="submit"
-          className=" cursor-pointer bg-pink-500 text-white w-full uppercase border-none mt-10 py-5 px-8 text-base font-thin tracking-widest rounded-md transition-transform duration-300 transform hover:bg-pink-500 active:translate-y-0.5 active:opacity-80"
-        />
-      </form>
-    </>
+    <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg mx-auto p-4">
+      {step === 1 && <UserName register={register} errors={errors} />}
+      {step === 2 && <Password register={register} errors={errors} />}
+      {step === 3 && <Email register={register} errors={errors} />}
+      {step === 4 && <SuccessMessage />}
+      <Buttons
+        step={step}
+        handleNext={() => nextStep()}
+        handleBack={() => handleBack()}
+      />
+    </form>
   );
-}
+};
+
 export default FormContainer;
