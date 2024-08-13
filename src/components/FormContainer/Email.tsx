@@ -24,7 +24,7 @@ const Email: React.FC<EmailProps> = ({ register, errors }) => {
         })}
         className="block w-full border border-black rounded-md p-2.5 mb-3 text-sm"
       />
-      {errors.email && <p>{errors.email.message}</p>}
+      {errors.email && <p className="text-red-500">{errors.email.message}</p>}
     </div>
   );
 };
