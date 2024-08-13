@@ -1,6 +1,12 @@
-function CardContainer() {
+interface CardContainerProps {
+  setIsFormContainerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const CardContainer: React.FC<CardContainerProps> = ({
+  setIsFormContainerOpen,
+}) => {
   return (
-    <>
+    <div className="w-full flex items-center justify-center h-[60vh]">
       <div
         className="swiper-slide ml-5 last-of-type:mr-5 swiper-slide-next"
         style={{
@@ -10,9 +16,11 @@ function CardContainer() {
           width: "12.125rem",
         }}
       >
-        <a
-          className="group flex flex-grow flex-col overflow-hidden rounded-md md:border md:border-gray-300"
-          href="/ka/services/bankebi-sxva-finansuri-momsaxureba"
+        <div
+          className="group flex flex-grow flex-col overflow-hidden rounded-md md:border md:border-gray-300 cursor-pointer"
+          onClick={() => {
+            setIsFormContainerOpen(true);
+          }}
         >
           <div className="broder flex h-44 items-center justify-center bg-white/70 text-blue-700/70 group-hover:bg-white/70 md:bg-gray-200/70">
             <img
@@ -30,14 +38,11 @@ function CardContainer() {
                 ფორმა
               </span>
               <br />
-              <span className="text-xs text-gray-500">
-                სხვა ფინანსური მომსახურება
-              </span>
             </h3>
           </div>
-        </a>
+        </div>
       </div>
-    </>
+    </div>
   );
-}
+};
 export default CardContainer;
