@@ -3,8 +3,9 @@ import { FormNavigationManager } from "./FormNavigationManager";
 import { FormValidationManager } from "./FormValidationManager";
 
 import Buttons from "./Buttons";
-import SuccessMessage from "./successMessage";
+import SuccessMessage from "./stepComponents/successMessage";
 import { FormStep } from "./FormStep";
+import StepCounter from "./StepCounter";
 
 interface FormContainerProps {
   setIsFormContainerOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -29,20 +30,24 @@ const FormContainer: React.FC<FormContainerProps> = ({
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg mx-auto p-4">
-      {step === 4 ? (
-        <SuccessMessage />
-      ) : (
-        <FormStep step={step} register={register} errors={errors} />
-      )}
-      <Buttons
-        step={step}
-        handleNextStep={handleNextStep}
-        handlePreviousStep={handlePreviousStep}
-        setIsFormContainerOpen={setIsFormContainerOpen}
-        triggerValidation={triggerValidation}
-      />
-    </form>
+    <div className=" mt-36">
+      {step !== 4 ? <StepCounter currentStep={step} totalSteps={3} /> : ""}
+
+      <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg mx-auto p-4">
+        {step === 4 ? (
+          <SuccessMessage />
+        ) : (
+          <FormStep step={step} register={register} errors={errors} />
+        )}
+        <Buttons
+          step={step}
+          handleNextStep={handleNextStep}
+          handlePreviousStep={handlePreviousStep}
+          setIsFormContainerOpen={setIsFormContainerOpen}
+          triggerValidation={triggerValidation}
+        />
+      </form>
+    </div>
   );
 };
 
