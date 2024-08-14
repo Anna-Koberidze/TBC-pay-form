@@ -1,5 +1,5 @@
 import useStore from "../store/useStore";
-
+import clipboardIcon from "/src/assets/images/clipboard-text.svg";
 const CardContainer: React.FC = () => {
   const { setIsFormContainerOpen } = useStore();
   return (
@@ -21,7 +21,7 @@ const CardContainer: React.FC = () => {
         >
           <div className="broder flex h-44 items-center justify-center bg-white/70 text-blue-700/70 group-hover:bg-white/70 md:bg-gray-200/70">
             <img
-              src="/src/assets/images/clipboard-text.svg"
+              src={clipboardIcon}
               alt="icon"
               className="w-24 md:w-58"
               width="58"
