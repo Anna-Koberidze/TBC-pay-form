@@ -7,18 +7,12 @@ import SuccessMessage from "./stepComponents/successMessage";
 import { FormStep } from "./FormStep";
 import StepCounter from "./StepCounter";
 
-interface FormContainerProps {
-  setIsFormContainerOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 export interface FormValues {
   userNameInput: string;
   password: string;
   email: string;
 }
-const FormContainer: React.FC<FormContainerProps> = ({
-  setIsFormContainerOpen,
-}) => {
+const FormContainer: React.FC = () => {
   const { step, handleNextStep, handlePreviousStep } = FormNavigationManager();
   const { register, handleSubmit, errors, triggerValidation } =
     FormValidationManager();
@@ -43,7 +37,6 @@ const FormContainer: React.FC<FormContainerProps> = ({
           step={step}
           handleNextStep={handleNextStep}
           handlePreviousStep={handlePreviousStep}
-          setIsFormContainerOpen={setIsFormContainerOpen}
           triggerValidation={triggerValidation}
         />
       </form>

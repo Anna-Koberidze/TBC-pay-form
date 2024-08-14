@@ -1,8 +1,10 @@
+import useStore from "../../store/useStore";
+
 interface ButtonsProps {
   handlePreviousStep: () => void;
   handleNextStep: () => void;
   step: number;
-  setIsFormContainerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+
   triggerValidation: () => Promise<boolean>;
 }
 
@@ -10,7 +12,7 @@ const Buttons: React.FC<ButtonsProps> = ({
   handleNextStep,
   handlePreviousStep,
   step,
-  setIsFormContainerOpen,
+
   triggerValidation,
 }) => {
   const handleNext = async () => {
@@ -19,6 +21,7 @@ const Buttons: React.FC<ButtonsProps> = ({
       handleNextStep();
     }
   };
+  const { setIsFormContainerOpen } = useStore();
   return (
     <>
       {step !== 4 ? (

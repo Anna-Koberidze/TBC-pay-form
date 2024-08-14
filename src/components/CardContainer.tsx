@@ -1,10 +1,7 @@
-interface CardContainerProps {
-  setIsFormContainerOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import useStore from "../store/useStore";
 
-const CardContainer: React.FC<CardContainerProps> = ({
-  setIsFormContainerOpen,
-}) => {
+const CardContainer: React.FC = () => {
+  const { setIsFormContainerOpen } = useStore();
   return (
     <div className="w-full flex items-center justify-center h-[60vh]">
       <div

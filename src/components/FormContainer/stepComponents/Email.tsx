@@ -19,7 +19,7 @@ const Email: React.FC<EmailProps> = ({ register, errors }) => {
           required: "ველის შევსება სავალდებულოა",
           pattern: {
             value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-            message: "გთხოვთ გამოიყენოთ სწორი იმეილის ფორმატი",
+            message: "გთხოვთ გამოიყენოთ სწორი ელ-ფოსტის ფორმატი",
           },
         })}
         className="block w-full border border-black rounded-md p-2.5 mb-3 text-sm border border-gray-300 focus:outline-none focus:border-gray-500 "
