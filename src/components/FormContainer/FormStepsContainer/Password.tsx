@@ -1,6 +1,6 @@
 import React from "react";
 import { UseFormRegister, FieldErrors } from "react-hook-form";
-import { FormValues } from "./index";
+import { FormValues } from "../index";
 
 interface PasswordProps {
   register: UseFormRegister<FormValues>;
@@ -30,10 +30,13 @@ const Password: React.FC<PasswordProps> = ({ register, errors }) => {
           pattern: {
             value: /^(?=.*[A-Z])(?=.*[0-9!@#$%^&*])[a-zA-Z0-9!@#$%^&*]+$/,
             message:
-              "პაროლი უნდა შეიცავდეს მინიმუმ 1 რიცხვს ან უცხო სიმბოლოს და მინიმუმ 1 ლათინურ მთავრულ ასოს",
+              "პაროლი უნდა შეიცავდეს მინიმუმ 1 რიცხვს ან უცხო სიმბოლოს და მინიმუმ 1 ლათინურ მთავრულ ასოს, მაგალითად: P@ssword",
           },
+          validate: (value) =>
+            value !== "P@ssword" ||
+            'თქვენს მიერ შეყვანილი პაროლი უდრის ნიმუშად მოწოდებულ პაროლს , კერძოდ "P@ssword" , გთხოვთ შეიყვანეთ უნიკალური პაროლი',
         })}
-        className="block w-full border border-black rounded-md p-2.5 mb-3 text-sm"
+        className="block w-full border border-black rounded-md p-2.5 mb-3 text-sm border border-gray-300 focus:outline-none focus:border-gray-500 "
       />
       {errors.password && (
         <p className="text-red-500">{errors.password.message}</p>

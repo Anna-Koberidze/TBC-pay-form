@@ -1,6 +1,6 @@
 import React from "react";
 import { UseFormRegister, FieldErrors } from "react-hook-form";
-import { FormValues } from "./index";
+import { FormValues } from "../index";
 
 interface UserNameProps {
   register: UseFormRegister<FormValues>;
@@ -33,7 +33,7 @@ const UserName: React.FC<UserNameProps> = ({ register, errors }) => {
               "მომხმარებლის სახელი უნდა შედგებოდეს მხოლოდ რიცხვებისა და ლათინური ასოებისგან",
           },
         })}
-        className="block w-full border border-black rounded-md p-2.5 mb-3 text-sm"
+        className="block w-full border border-gray-300 focus:outline-none focus:border-gray-500 rounded-md p-2.5 mb-3 text-sm"
       />
       {errors.userNameInput && (
         <p className="text-red-500">{errors.userNameInput.message}</p>

@@ -1,8 +1,7 @@
-interface HeaderProps {
-  setIsFormContainerOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import useStore from "../store/useStore";
 
-const Header: React.FC<HeaderProps> = ({ setIsFormContainerOpen }) => {
+const Header: React.FC = () => {
+  const { setIsFormContainerOpen } = useStore();
   return (
     <>
       <div className="w-full sticky top-0 right-0 left-0 z-40 bg-white ">
