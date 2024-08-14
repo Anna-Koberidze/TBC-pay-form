@@ -1,7 +1,7 @@
 import React from "react";
-import UserName from "./UserName";
-import Password from "./Password";
-import Email from "./Email";
+import UserName from "./stepComponents/UserName";
+import Password from "./stepComponents/Password";
+import Email from "./stepComponents/Email";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { FormValues } from "./index";
 
