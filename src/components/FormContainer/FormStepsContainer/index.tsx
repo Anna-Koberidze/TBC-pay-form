@@ -1,9 +1,9 @@
 import React from "react";
-import UserName from "./stepComponents/UserName";
-import Password from "./stepComponents/Password";
-import Email from "./stepComponents/Email";
+import UserName from "./UserName";
+import Password from "./Password";
+import Email from "./Email";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
-import { FormValues } from "./index";
+import { FormValues } from "../index";
 
 interface FormStepProps {
   step: number;
@@ -11,7 +11,7 @@ interface FormStepProps {
   errors: FieldErrors<FormValues>;
 }
 
-export const FormStep: React.FC<FormStepProps> = ({
+export const FormStepsContainer: React.FC<FormStepProps> = ({
   step,
   register,
   errors,

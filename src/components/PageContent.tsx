@@ -1,6 +1,6 @@
-import useStore from "../../store/useStore";
-import CardContainer from "../CardContainer";
-import FormContainer from "../FormContainer";
+import useStore from "../store/useStore";
+import CardContainer from "./CardContainer";
+import FormContainer from "./FormContainer";
 
 const PageContent: React.FC = () => {
   const { isFormContainerOpen } = useStore();

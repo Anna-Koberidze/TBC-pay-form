@@ -5,7 +5,6 @@ interface StoreState {
   setIsFormContainerOpen: (isOpen: boolean) => void;
 }
 
-// Create the store
 const useStore = create<StoreState>((set) => ({
   isFormContainerOpen: false,
   setIsFormContainerOpen: (isOpen: boolean) =>

@@ -3,8 +3,8 @@ import { FormNavigationManager } from "./FormNavigationManager";
 import { FormValidationManager } from "./FormValidationManager";
 
 import Buttons from "./Buttons";
-import SuccessMessage from "./stepComponents/successMessage";
-import { FormStep } from "./FormStep";
+import SuccessMessage from "./FormStepsContainer/successMessage";
+import { FormStepsContainer } from "./FormStepsContainer";
 import StepCounter from "./StepCounter";
 
 export interface FormValues {
@@ -31,7 +31,7 @@ const FormContainer: React.FC = () => {
         {step === 4 ? (
           <SuccessMessage />
         ) : (
-          <FormStep step={step} register={register} errors={errors} />
+          <FormStepsContainer step={step} register={register} errors={errors} />
         )}
         <Buttons
           step={step}
