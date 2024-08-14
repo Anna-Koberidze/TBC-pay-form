@@ -1,5 +1,6 @@
 import useStore from "../store/useStore";
-
+import newLogo from "/src/assets/images/new-logo.svg";
+import houseFill from "/src/assets/images/house-fill.svg";
 const Header: React.FC = () => {
   const { setIsFormContainerOpen } = useStore();
   return (
@@ -7,7 +8,7 @@ const Header: React.FC = () => {
       <div className="w-full sticky top-0 right-0 left-0 z-40 bg-white ">
         <div className="container flex items-center justify-between py-3 mx-auto">
           <img
-            src="/src/assets/images/new-logo.svg"
+            src={newLogo}
             alt="logo"
             className="w-24 md:w-40"
             width="164"
@@ -17,12 +18,7 @@ const Header: React.FC = () => {
             onClick={() => setIsFormContainerOpen(false)}
             className="cursor-pointer inline-block rounded-lg bg-pink-500 px-4 py-2 text-base font-bold text-white disabled:cursor-not-allowed disabled:opacity-80 flex items-center gap-2"
           >
-            <img
-              src="/src/assets/images/house-fill.svg"
-              alt="logo"
-              width="20"
-              height="20"
-            />
+            <img src={houseFill} alt="logo" width="20" height="20" />
             <span>მთავარი</span>
           </div>
         </div>

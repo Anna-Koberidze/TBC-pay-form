@@ -1,5 +1,5 @@
 import useStore from "../../store/useStore";
-
+import arrowLeft from "/src/assets/images/arrow-left-bold.svg";
 interface ButtonsProps {
   handlePreviousStep: () => void;
   handleNextStep: () => void;
@@ -43,12 +43,7 @@ const Buttons: React.FC<ButtonsProps> = ({
             }
             className="bg-none text-pink-500 font-bold px-4 py-2 rounded-md max-w-xs w-full h-14 flex items-center justify-center flex-row gap-2 relative right-5"
           >
-            <img
-              src="/src/assets/images/arrow-left-bold.svg"
-              alt="back icon"
-              width="30"
-              height="30"
-            />
+            <img src={arrowLeft} alt="back icon" width="30" height="30" />
             <span>უკან</span>
           </button>
         </div>
