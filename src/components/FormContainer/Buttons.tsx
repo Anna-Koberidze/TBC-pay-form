@@ -22,7 +22,7 @@ const Buttons: React.FC<ButtonsProps> = ({
   return (
     <>
       {step !== 4 ? (
-        <div className="flex flex-col gap-3 w-full items-center justify-center mt-10">
+        <div className="flex flex-col gap-3 w-full items-center justify-center mt-20">
           <button
             type="button"
             onClick={handleNext}
@@ -42,8 +42,7 @@ const Buttons: React.FC<ButtonsProps> = ({
           >
             <img
               src="/src/assets/images/arrow-left-bold.svg"
-              alt="icon"
-              // className="w-24 md:w-58"
+              alt="back icon"
               width="30"
               height="30"
             />
