@@ -25,11 +25,11 @@ const Buttons: React.FC<ButtonsProps> = ({
   return (
     <>
       {step !== 4 ? (
-        <div className="flex flex-col gap-3 w-full items-center justify-center mt-20">
+        <div className="flex flex-col gap-3 w-full items-center justify-center">
           <button
             type="button"
             onClick={handleNext}
-            className="bg-pink-500 text-white px-4 py-2 rounded-md max-w-xs w-full h-14"
+            className="bg-pink-500 font-bold text-white px-4 py-2 rounded-md max-w-xs w-full h-14"
           >
             {step === 3 ? "გაგზავნა" : "შემდეგი"}
           </button>

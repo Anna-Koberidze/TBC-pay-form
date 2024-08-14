@@ -24,10 +24,13 @@ const FormContainer: React.FC = () => {
   };
 
   return (
-    <div className=" mt-36">
+    <div className="mt-[10vh] mx-auto max-w-[600px] w-[90vw] shadow-[0px_0px_3px_#00000047] pt-[50px] pb-[20px] rounded-[15px] h-[530px]">
       {step !== 4 ? <StepCounter currentStep={step} totalSteps={3} /> : ""}
 
-      <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg mx-auto p-4">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="max-w-lg mx-auto p-4 flex flex-col justify-between h-[405px]"
+      >
         {step === 4 ? (
           <SuccessMessage />
         ) : (
